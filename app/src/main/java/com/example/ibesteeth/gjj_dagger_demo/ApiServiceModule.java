@@ -13,11 +13,19 @@ import dagger.Provides;
 @Module
 public class ApiServiceModule {
 
+    @Provides
+    int getId(){
+        return 0;
+    }
 
+    @Provides
+    String getName(){
+        return "testName";
+    }
 
     @Provides
     @Singleton
-    ApiService provideApiServiceNull() {
-        return new ApiService();
+    ApiService provideApiServiceNull(int id,String name) {
+        return new ApiService(id,name);
     }
 }
